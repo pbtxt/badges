@@ -16,6 +16,13 @@ class Badges extends React.Component {
 
   componentDidMount () {
     this.fetchData()
+    this.intervalId =  setInterval((this.fetchData, 5000));
+  }
+
+  //para apagar lo que se estaba haciendo arriba que es recargar siempre para actualizar los datos 
+  
+  componentWillUnmount(){
+    clearInterval(this.intervalId)
   }
 
   fetchData = async () => {
@@ -29,8 +36,8 @@ class Badges extends React.Component {
   }
 
   render() {
-
-    if(this.state.loading === true){
+    // !this.state.data === this.state.data===undefined
+    if(this.state.loading === true && !this.state.data){
       return <PageLoading />
     }
     
