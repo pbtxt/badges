@@ -37,6 +37,7 @@ class Badges extends React.Component {
 
   render() {
     // !this.state.data === this.state.data===undefined
+    console.log('prueba')
     if(this.state.loading === true && !this.state.data){
       return <PageLoading />
     }
